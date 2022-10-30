@@ -1,10 +1,9 @@
 package CALCULADORA_2;
+
 // IMPLEMENTAR FUNCIONALIDADES:
-
-
 //-> BOTÃO PONTO. 
-//-> BOTÃO DE CALCULO DE IMC EM NOVA JANELA.
 //-> CRIAR HISTÓRICO DE CALCULOS PEGANDO OS VALORES SETADOS NA JANELA CALCULO.
+
 public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
 
     double valor1, valor2, resultado, valores;
@@ -12,6 +11,8 @@ public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
 
     public INTERTFACE_CALCULADORA() {
         initComponents();
+        
+      
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +55,11 @@ public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
         BOTÃO1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BOTÃO1MouseClicked(evt);
+            }
+        });
+        BOTÃO1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BOTÃO1KeyPressed(evt);
             }
         });
 
@@ -206,6 +212,11 @@ public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
         });
 
         jButtonIMC.setText(" IMC");
+        jButtonIMC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIMCActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -314,6 +325,8 @@ public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
   
+    
+    
     private void BOTÃO1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BOTÃO1MouseClicked
         TELA.setText(TELA.getText() + "1");
     }//GEN-LAST:event_BOTÃO1MouseClicked
@@ -441,6 +454,19 @@ public class INTERTFACE_CALCULADORA extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_BOTÃOPORCENTAGEMActionPerformed
+
+    private void jButtonIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIMCActionPerformed
+        calcIMC imc = new calcIMC (this, rootPaneCheckingEnabled);
+        imc.setVisible(true);
+        
+       
+        
+        
+    }//GEN-LAST:event_jButtonIMCActionPerformed
+
+    private void BOTÃO1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BOTÃO1KeyPressed
+        TELA.setText(TELA.getText() + "1");
+    }//GEN-LAST:event_BOTÃO1KeyPressed
 
     /**
      * @param args the command line arguments
